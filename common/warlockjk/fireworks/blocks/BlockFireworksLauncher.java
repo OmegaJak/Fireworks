@@ -1,10 +1,13 @@
 package warlockjk.fireworks.blocks;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -13,7 +16,7 @@ import warlockjk.fireworks.tileentities.TileEntityLauncher;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFireworksLauncher extends BlockContainer {
+public class BlockFireworksLauncher extends Block {
 
 	public BlockFireworksLauncher(int id) {
 		super(id, Material.rock);
@@ -48,15 +51,22 @@ public class BlockFireworksLauncher extends BlockContainer {
 			return botIcon;
 		}else if(side == 1) {
 			return topIcon;
-		}else if (meta >= 0 && meta <= 2){
-			return sideIcons[0];
 		}else{
-			return sideIcons[0];
+			return sideIcons[meta];
 		}
 	}
 	
-	@Override
+/**	@Override
 	public TileEntity createNewTileEntity(World world) {
 		return new TileEntityLauncher();
+	}*/
+	
+	@Override
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SideOnly(Side.CLIENT)
+	public void getSubBlocks(int id, CreativeTabs tab, List list) {
+		for (int i = 0; i < BlockInfo.LAUNCHER_SIDES.length; i++) {
+			list.add(new ItemStack(id, 1, i));
+		}
 	}
 }

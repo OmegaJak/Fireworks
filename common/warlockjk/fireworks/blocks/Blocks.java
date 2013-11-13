@@ -15,6 +15,6 @@ public class Blocks {
 	}
 	
 	public static void addNames() {
-		LanguageRegistry.addName(launcher, BlockInfo.LAUNCHER_NAME);
+			LanguageRegistry.addName(launcher, BlockInfo.LAUNCHER_NAME);
 	}
 }

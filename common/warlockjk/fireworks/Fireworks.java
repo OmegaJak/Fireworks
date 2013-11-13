@@ -2,6 +2,7 @@ package warlockjk.fireworks;
 
 import warlockjk.fireworks.blocks.Blocks;
 import warlockjk.fireworks.config.ConfigHandler;
+import warlockjk.fireworks.items.Items;
 import warlockjk.fireworks.lib.ModInformation;
 import warlockjk.fireworks.network.PacketHandler;
 import warlockjk.fireworks.proxies.CommonProxy;
@@ -21,15 +22,14 @@ public class Fireworks {
 	@Instance(ModInformation.ID)
 	public static Fireworks instance;
 	
-	@SidedProxy(clientSide = "fireworks.proxies.ClientProxy", serverSide = "fireworks.proxies.CommonProxy")
+	@SidedProxy(clientSide = "warlockjk.fireworks.proxies.ClientProxy", serverSide = "warlockjk.fireworks.proxies.CommonProxy")
 	public static CommonProxy proxy;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {//Doesn't have to be named preInit
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
-//		Items.init();
+		Items.init();
 		Blocks.init();
-		
 		
 		proxy.initSounds();
 		proxy.initRenderers();
@@ -38,6 +38,7 @@ public class Fireworks {
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
 		Blocks.addNames();
+		Items.addNames();
 		
 //		Items.registerRecipes();
 	}
