@@ -41,6 +41,7 @@ public class Fireworks {
 		Items.addNames();
 		
 //		Items.registerRecipes();
+		Blocks.registerTileEntities();
 	}
 	
 	@EventHandler

@@ -16,7 +16,7 @@ import warlockjk.fireworks.tileentities.TileEntityLauncher;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFireworksLauncher extends Block {
+public class BlockFireworksLauncher extends BlockContainer {
 
 	public BlockFireworksLauncher(int id) {
 		super(id, Material.rock);
@@ -56,10 +56,10 @@ public class BlockFireworksLauncher extends Block {
 		}
 	}
 	
-/**	@Override
+	@Override
 	public TileEntity createNewTileEntity(World world) {
 		return new TileEntityLauncher();
-	}*/
+	}
 	
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
