@@ -1,0 +1,18 @@
+[
+{
+    "modid" : "Fireworks",
+    "name" : "Fireworks Mod",
+    "version" : "v1.0.0",
+    "credits" : "Thanks to Vswe and his awesome tutorials",
+    "authors" : [
+        "WarlockJK"
+    ],
+    "description" : "This is the assignment for vswe's 3rd course: Forging a Minecraft Mod. It adds a block that shoots different fireworks, not vanilla fireworks though.",
+    "url" : "http://courses.vswe.se/?course=3",
+    "updateUrl"  : "",
+    "logoFile" : "",
+    "parent" : "",
+    "screenshots" : [
+    ]
+}
+]
