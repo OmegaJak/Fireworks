@@ -2,6 +2,7 @@ package warlockjk.fireworks;
 
 import warlockjk.fireworks.blocks.Blocks;
 import warlockjk.fireworks.config.ConfigHandler;
+import warlockjk.fireworks.entities.Entities;
 import warlockjk.fireworks.items.Items;
 import warlockjk.fireworks.lib.ModInformation;
 import warlockjk.fireworks.network.PacketHandler;
@@ -42,6 +43,8 @@ public class Fireworks {
 		
 //		Items.registerRecipes();
 		Blocks.registerTileEntities();
+		
+		Entities.init();
 	}
 	
 	@EventHandler

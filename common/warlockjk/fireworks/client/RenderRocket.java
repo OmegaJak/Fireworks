@@ -16,7 +16,7 @@ public class RenderRocket extends Render
 	//TODO replace "example" with wherever you store it, it works the same as the naming for item and block icons
     private static final ResourceLocation[] textures = new ResourceLocation[] {
     	new ResourceLocation("fireworks", "textures/models/rocket1.png"),
-    	new ResourceLocation("fireworks", "textures/models/rocket23.png"),
+    	new ResourceLocation("fireworks", "textures/models/rocket2.png"),
     	new ResourceLocation("fireworks", "textures/models/rocket3.png")
     };
 
@@ -53,6 +53,6 @@ public class RenderRocket extends Render
     //TODO return the correct id depending on the firework type
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		return textures[0];
+		return textures[((EntityRocket)entity).rocketType];
 	}
 }

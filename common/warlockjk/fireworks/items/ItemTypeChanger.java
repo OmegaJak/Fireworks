@@ -60,8 +60,9 @@ public class ItemTypeChanger extends Item {
 		if (!world.isRemote && world.getBlockId(x,  y,  z) == BlockInfo.LAUNCHER_ID) {
 			
 			world.setBlockMetadataWithNotify(x, y, z, stack.getItemDamage(), 3);
-			stack.stackSize--;
-			
+			if (!player.capabilities.isCreativeMode) {
+				stack.stackSize--;
+			}
 			return true;
 		}else{
 			return false;
