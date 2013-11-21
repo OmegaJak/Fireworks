@@ -1,5 +1,7 @@
 package warlockjk.fireworks.tileentities;
 
+import java.util.Random;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import warlockjk.fireworks.entities.EntityRocket;
@@ -11,6 +13,8 @@ public class TileEntityLauncher extends TileEntity {
 	
 	private int fireTimer;
 	private int particleTimer;
+	
+	Random rand = new Random();
 	
 	public TileEntityLauncher() {
 		fireTimer = 0;
@@ -36,8 +40,21 @@ public class TileEntityLauncher extends TileEntity {
 			}else{
 				fireTimer++;
 			}
+
+		}else{
 			if(particleTimer == PARTICLE_TIME) {
-				
+				for (int i = 0; i < 3; i ++) {
+					float particleX = xCoord + rand.nextFloat();
+					float particleY = yCoord + rand.nextFloat();
+					float particleZ = zCoord + rand.nextFloat();
+					
+					float particleMotionX = (-0.5F + rand.nextFloat()) * 0.1F;
+					float particleMotionY = (-0.5F + rand.nextFloat()) * 0.1F;
+					float particleMotionZ = (-0.5F + rand.nextFloat()) * 0.1F;
+					
+					worldObj.spawnParticle("smoke", particleX, particleY, particleZ, particleMotionX, particleMotionY, particleMotionZ);
+					particleTimer = 0;
+				}
 			}else{
 				particleTimer++;
 			}
